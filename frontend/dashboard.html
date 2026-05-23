@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SentinelForge Console</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <div class="dashboard-shell">
+    <aside class="sidebar glass">
+      <div>
+        <div class="brand sidebar-brand">
+          <div class="logo">🛡️</div>
+          <div>
+            <h2>SentinelForge</h2>
+            <span>Threat Console</span>
+          </div>
+        </div>
+
+        <div class="sidebar-menu">
+          <button class="menu-btn active" onclick="showSection('passwordSection', this)">
+            🧠 Password Intelligence
+          </button>
+
+          <button class="menu-btn" onclick="showSection('scannerSection', this)">
+            🛡️ Vulnerability Scanner
+          </button>
+
+          <button class="menu-btn" onclick="showSection('phishingSection', this)">
+            🤖 AI Phishing Detection
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button id="themeToggle" class="ghost-btn full">☀️ Toggle Theme</button>
+        <button class="ghost-btn full" onclick="logoutUser()">Logout</button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <section class="metrics-grid">
+        <div class="metric-card glass">
+          <h3>Threat Model</h3>
+          <h1>96.68%</h1>
+          <p>ML Accuracy</p>
+        </div>
+
+        <div class="metric-card glass">
+          <h3>Authentication</h3>
+          <h1>JWT</h1>
+          <p>Secure Access</p>
+        </div>
+
+        <div class="metric-card glass">
+          <h3>Modules</h3>
+          <h1>4</h1>
+          <p>Security Engines</p>
+        </div>
+
+        <div class="metric-card glass">
+          <h3>Status</h3>
+          <h1>ONLINE</h1>
+          <p>Backend Active</p>
+        </div>
+      </section>
+
+      <section id="passwordSection" class="tool-section active-section">
+        <div class="section-header">
+          <h1>🧠 Password Intelligence Engine</h1>
+          <p>Analyze password strength, entropy, crack-time estimation, and security risks.</p>
+        </div>
+
+        <div class="tool-box glass">
+          <input type="password" id="passwordInput" placeholder="Enter password to analyze" />
+
+          <button class="primary-btn full" onclick="analyzePassword()">
+            Analyze Password
+          </button>
+
+          <button class="ghost-btn full demo-btn" onclick="downloadReport('password')">
+            ⬇ Download Password Report
+          </button>
+
+          <div id="passwordResult" class="result-box">
+            Waiting for password analysis...
+          </div>
+        </div>
+      </section>
+
+      <section id="scannerSection" class="tool-section">
+        <div class="section-header">
+          <h1>🛡️ Vulnerability Scanner</h1>
+          <p>Scan local services and identify security risks.</p>
+        </div>
+
+        <div class="tool-box glass">
+          <input type="text" id="targetInput" value="127.0.0.1" />
+
+          <div class="input-row">
+            <input type="number" id="startPort" value="7999" />
+            <input type="number" id="endPort" value="8001" />
+          </div>
+
+          <button class="primary-btn full" onclick="scanTarget()">
+            Start Vulnerability Scan
+          </button>
+
+          <button class="ghost-btn full demo-btn" onclick="downloadReport('scanner')">
+            ⬇ Download Scanner Report
+          </button>
+
+          <div id="scanResult" class="result-box">
+            Waiting for vulnerability scan...
+          </div>
+        </div>
+      </section>
+
+      <section id="phishingSection" class="tool-section">
+        <div class="section-header">
+          <h1>🤖 AI Phishing Detection</h1>
+          <p>Detect suspicious phishing and spam messages using machine learning.</p>
+        </div>
+
+        <div class="tool-box glass">
+          <textarea
+            id="messageInput"
+            placeholder="Paste suspicious email or message here..."
+          ></textarea>
+
+          <button class="primary-btn full" onclick="detectPhishing()">
+            Analyze Threat
+          </button>
+
+          <button class="ghost-btn full demo-btn" onclick="downloadReport('phishing')">
+            ⬇ Download Phishing Report
+          </button>
+
+          <div id="phishingResult" class="result-box">
+            Waiting for phishing analysis...
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

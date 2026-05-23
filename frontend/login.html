@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SentinelForge Access Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <main class="auth-premium">
+    <section class="auth-left glass">
+      <a href="index.html" class="back-link">← Back to Home</a>
+
+      <div class="brand big-brand">
+        <div class="logo">🛡️</div>
+        <div>
+          <h2>SentinelForge</h2>
+          <span>Secure Access Portal</span>
+        </div>
+      </div>
+
+      <h1>Access the Threat Intelligence Console</h1>
+      <p>
+        Login to use password intelligence, vulnerability scanning, and AI phishing detection
+        inside one unified cybersecurity platform.
+      </p>
+
+      <div class="auth-highlights">
+        <div>🔐 JWT Authentication</div>
+        <div>🧬 bcrypt Password Hashing</div>
+        <div>🛡️ Protected Security Console</div>
+        <div>🤖 AI Threat Detection</div>
+      </div>
+    </section>
+
+    <section class="auth-right">
+      <div class="auth-box glass">
+        <div class="auth-tabs">
+          <button class="tab active" onclick="showAuthTab('login')">Login</button>
+          <button class="tab" onclick="showAuthTab('register')">Register</button>
+          <button id="themeToggle" class="tab">☀️</button>
+        </div>
+
+        <div id="loginPanel" class="auth-panel active">
+          <h2>Welcome back</h2>
+          <p>Enter your credentials to continue.</p>
+
+          <label>Email Address</label>
+          <input type="email" id="loginEmail" placeholder="roshina@example.com" />
+
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter password" />
+
+          <button class="primary-btn full" onclick="loginUser()">
+            Login to Console
+          </button>
+
+          <button class="ghost-btn full demo-btn" onclick="fillDemoLogin()">
+            ⚡ Use Demo Login
+          </button>
+
+          <pre id="loginResult" class="mini-result">Waiting for login...</pre>
+        </div>
+
+        <div id="registerPanel" class="auth-panel">
+          <h2>Create account</h2>
+          <p>Register a new SentinelForge user.</p>
+
+          <label>Full Name</label>
+          <input type="text" id="registerName" placeholder="Mary Roshina R" />
+
+          <label>Email Address</label>
+          <input type="email" id="registerEmail" placeholder="name@example.com" />
+
+          <label>Password</label>
+          <input type="password" id="registerPassword" placeholder="Create password" />
+
+          <button class="primary-btn full" onclick="registerUser()">
+            Create Secure Account
+          </button>
+
+          <pre id="registerResult" class="mini-result">Waiting for registration...</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
